@@ -18,13 +18,13 @@ var placeToSendCars = document.querySelector('#placeForCars');
       cars.forEach(function(cars,index){
         console.log('does this work');
         placeToSendCars.innerHTML +=
-        `<div class=carCard id="car-${index}">
-          <span class="cardContent"> <strong>${cars.make}:</strong>
-          Make: ${cars.make}
-          Year: ${cars.year}
-          Price: ${cars.price}
-          Color: ${cars.color}
-          Description:${cars.description}
+        `<div class="carCard col-sm-4" style="border: ${cars.color} solid 5px " id="car-${index}">
+          <h2><span class="cardContent"> <strong>${cars.make}:</strong></h2>
+          <h3>Make: ${cars.make}</h3>
+          <h3>Year: ${cars.year}</h3>
+          <h4>Price: ${cars.price}</h4>
+          <h4>Color: ${cars.color}</h4>
+          <h5>Description:${cars.description}</h5>
           </span>
           </div>`
 
