@@ -4,7 +4,6 @@
 var CarLot = (function(addInventory){
 var cars = []
 var placeToSendCars = document.querySelector('#placeForCars');
-CarLot.loadInventory(setArray)
 
   function setArray() {
     cars = CarLot.getInventory()
@@ -31,6 +30,8 @@ CarLot.loadInventory(setArray)
 
       })
       };
+      setArray();
+    CarLot.loadInventory(setArray)
       return addInventory;
     }
     )(CarLot||{});
