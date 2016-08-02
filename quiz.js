@@ -16,10 +16,9 @@ var placeToSendCars = document.querySelector('#placeForCars');
   console.log('addInventory is starting')
       console.log(cars)
       cars.forEach(function(cars,index){
-        console.log('does this work');
         placeToSendCars.innerHTML +=
-        `<div class="carCard col-sm-4" style="border: ${cars.color} solid 5px " id="car-${index}">
-          <h2><span class="cardContent"> <strong>${cars.make}:</strong></h2>
+        `<div class="carCard col-sm-3" style="border: ${cars.color} solid 5px " id="car-${index}">
+          <h2><span class="cardContent"> <strong>${cars.model}</strong></h2>
           <h3>Make: ${cars.make}</h3>
           <h3>Year: ${cars.year}</h3>
           <h4>Price: ${cars.price}</h4>
@@ -36,9 +35,38 @@ var placeToSendCars = document.querySelector('#placeForCars');
     }
     )(CarLot||{});
 
+
+
+var CarLot = (function(carlot){
+  console.log('does this work');
+  carlot.activateEvents = function () {
+    document.addEventListner("click", handler);
+    var input =document.querySelector("#input")
+    input.addEventListner('input', CarLot.carRewrite);
+
+    function handler(e){
+      var selectColor = document.getElementById('colorSelect').value
+      CarLot.carSelector(e,selectColor)
+    }
+
+    carlot.carRewrite = function() {
+      var selectedCar = document.querySelector('.selected')
+      selectedCar.children[4].textContent = document.querySelector('#input').value;
+    }
+  }
+  return carlot
+})(CarLot|| {})
+
+
+
+// addEventListner();
 //   // Now that the DOM is loaded, establish all the event listeners needed
-//   CarLot.activateEvents();
-// }
+// CarLot.activateEvents() {
+
+// };
+
+
+ // }
 
 // // Load the inventory and send a callback function to be
 // // invoked after the process is complete
