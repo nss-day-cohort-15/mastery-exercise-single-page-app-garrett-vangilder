@@ -26,6 +26,33 @@
       "color": "green",
       "purchased": false,
       "description": "This is an immaculate 2008 Volkswagen Golf with only 60000 miles on it. Leather seats, power steering, windows, and aluminum wheels."
+    },
+    {
+      "make": "Toyota",
+      "model": "Prius",
+      "year": "2009",
+      "price": "8999",
+      "color": "LightGreen",
+      "purchased": false,
+      "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+    },
+    {
+      "make": "Ford",
+      "model": "Focus",
+      "year": "2006",
+      "price": "3000",
+      "color": "Red",
+      "purchased": false,
+      "description": "This is an immaculate 2013 Nissan Juke with only 3700 miles on it. Cloth Seats, power nothing."
+    },
+    {
+      "make": "Subaru",
+      "model": "WRX",
+      "year": "2006",
+      "price": "8000",
+      "color": "Blue",
+      "purchased": false,
+      "description": "This is an immaculate 2008 Subaru WRX with only 60000 miles on it. Leather seats, power steering, windows, and aluminum wheels."
     }
   ]
 }

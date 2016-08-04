@@ -23,71 +23,47 @@ var placeToSendCars = document.querySelector('#placeForCars');
           <h3>Year: ${cars.year}</h3>
           <h4>Price: ${cars.price}</h4>
           <h4>Color: ${cars.color}</h4>
-          <h5>Description:${cars.description}</h5>
+          <h5 class="textContent">Description:${cars.description}</h5>
           </span>
           </div>`
 
       })
+    addInventory.activateEvents();
       };
       setArray();
     CarLot.loadInventory(setArray)
+
+
+addInventory.carSelector = function (e) {
+  console.log('carSelector is go')
+
+}
+
+addInventory.carOverride = function() {
+  console.log('carOverride is go')
+  var selectedCar = document.querySelector('.selected')
+  console.log(selectedCar);
+  selectedCar.children.textContent = document.querySelector('#input').value
+
+}
+
+
       return addInventory;
+    })(CarLot||{});
+
+
+
+var CarLot =(function(addInventory){
+  addInventory.selectorReset = function() {
+      if (document.querySelector(".selected")) {
+      var carColor = document.querySelector(".selected").children[1].innerText
+      document.querySelector('.selected').style.border='solid 2px red';
+      document.querySelector(".selected").classList.toggle('selected')
+      console.log('selectorReset completed')
     }
-    )(CarLot||{});
-
-
-
-var CarLot = (function(carlot){
-  console.log('does this work');
-  carlot.activateEvents = function () {
-    document.addEventListner("click", handler);
-    var input =document.querySelector("#input")
-    input.addEventListner('input', CarLot.carRewrite);
-
-    function handler(e){
-      var selectColor = document.getElementById('colorSelect').value
-      CarLot.carSelector(e,selectColor)
     }
-
-    carlot.carRewrite = function() {
-      var selectedCar = document.querySelector('.selected')
-      selectedCar.children[4].textContent = document.querySelector('#input').value;
-    }
-  }
-  return carlot
-})(CarLot|| {})
-
-
-
-// addEventListner();
-//   // Now that the DOM is loaded, establish all the event listeners needed
-// CarLot.activateEvents() {
-
-// };
-
-
- // }
-
-// // Load the inventory and send a callback function to be
-// // invoked after the process is complete
-// CarLot.loadInventory();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  return addInventory
+})(CarLot || {})
 
 
 
