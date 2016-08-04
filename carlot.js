@@ -31,7 +31,8 @@ var CarLot = (function(addInventory){
       document.querySelector('.selected').style.background='none';
       carCards.classList.remove('selected');
       var input = document.querySelector('#input').value;
-      input = '';
+      console.log(input);
+      input = " ";
     } else {
       carCards.classList.add('selected')
       carHandler(e);
@@ -44,6 +45,10 @@ var CarLot = (function(addInventory){
       console.log('carHandler is go')
       document.querySelector('.selected').style.background='tomato',border = '10px red solid';
       addInventory.carOverride()
+
+      function setFocusToTextBox(){
+      document.getElementById("input").focus();
+      }
     }
   }
   return addInventory

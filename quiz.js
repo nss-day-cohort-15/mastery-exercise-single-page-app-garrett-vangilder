@@ -49,14 +49,6 @@ addInventory.carOverride = function() {
 
 
 
-var CarLot = (function(addInventory){
-  addInventory.selectorReset = function() {
-      if (document.querySelector(".selected")) {
-      console.log('selectorReset completed')
-    }
-    }
-  return addInventory
-})(CarLot || {})
 
 
 
