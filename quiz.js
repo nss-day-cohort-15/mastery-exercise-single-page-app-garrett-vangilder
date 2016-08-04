@@ -5,10 +5,10 @@ var CarLot = (function(addInventory){
 var cars = []
 var placeToSendCars = document.querySelector('#placeForCars');
 
-  function setArray() {
-    cars = CarLot.getInventory()
-    addInventory.populatePage(cars)
-    console.log(cars);
+  setArray = function () {
+      cars = CarLot.getInventory()
+      addInventory.populatePage(cars)
+      console.log(cars);
   }
 
 
@@ -34,31 +34,24 @@ var placeToSendCars = document.querySelector('#placeForCars');
     CarLot.loadInventory(setArray)
 
 
-addInventory.carSelector = function (e) {
-  console.log('carSelector is go')
-
-}
 
 addInventory.carOverride = function() {
   console.log('carOverride is go')
-  var selectedCar = document.querySelector('.selected')
-  console.log(selectedCar);
-  selectedCar.children.textContent = document.querySelector('#input').value
-
+  var carDescription = document.querySelector('.selected .textContent');
+  document.querySelector('#input').focus();
+  var newText = document.querySelector('#input').value;
+  console.log(newText);
+  carDescription.innerHTML = newText;
+  console.log(carDescription);
 }
-
-
       return addInventory;
     })(CarLot||{});
 
 
 
-var CarLot =(function(addInventory){
+var CarLot = (function(addInventory){
   addInventory.selectorReset = function() {
       if (document.querySelector(".selected")) {
-      var carColor = document.querySelector(".selected").children[1].innerText
-      document.querySelector('.selected').style.border='solid 2px red';
-      document.querySelector(".selected").classList.toggle('selected')
       console.log('selectorReset completed')
     }
     }

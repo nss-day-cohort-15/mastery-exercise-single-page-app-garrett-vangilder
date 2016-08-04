@@ -26,20 +26,24 @@ var CarLot = (function(addInventory){
     var carCard = document.querySelectorAll('.carCard');
     carCard.forEach((carCards)=>{
       carCards.addEventListener('click', (e)=>{
-      carCards.classList.toggle('selected');
-
-      addInventory.carSelector();
-      carHandler();
-
+        if (carCards.classList.contains('selected')){
+      console.log('selected')
+      document.querySelector('.selected').style.background='none';
+      carCards.classList.remove('selected');
+      var input = document.querySelector('#input').value;
+      input = '';
+    } else {
+      carCards.classList.add('selected')
+      carHandler(e);
+    }
       });
     });
     document.querySelector("#input").addEventListener("input",addInventory.carOverride);
+
     function carHandler(e){
       console.log('carHandler is go')
-      CarLot.carSelector()
-      document.querySelector('.selected').style.border='solid 2px red';
+      document.querySelector('.selected').style.background='tomato',border = '10px red solid';
       addInventory.carOverride()
-      console.log(carCard.classList);
     }
   }
   return addInventory
