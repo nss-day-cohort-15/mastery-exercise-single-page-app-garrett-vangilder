@@ -29,10 +29,10 @@ var CarLot = (function(addInventory){
         if (carCards.classList.contains('selected')){
       console.log('selected')
       document.querySelector('.selected').style.background='none';
-      carCards.classList.remove('selected');
-      var input = document.querySelector('#input').value;
+      var input = document.querySelector('#input');
       console.log(input);
-      input = " ";
+      input.value = "";
+      carCards.classList.remove('selected');
     } else {
       carCards.classList.add('selected')
       carHandler(e);
