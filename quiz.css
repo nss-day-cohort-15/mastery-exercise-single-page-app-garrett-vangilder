@@ -6,3 +6,7 @@ h1 {
   display: inline-block;
   margin: 2em;
 }
+
+.border {
+  background: red solid 10px;
+}

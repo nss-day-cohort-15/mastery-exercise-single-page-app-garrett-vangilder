@@ -1,31 +1,63 @@
 var CarLot = (function(addInventory){
+      var input = document.querySelector('#input');
   addInventory.activateEvents = function(){
     console.log('activateEvents works')
     var carCard = document.querySelectorAll('.carCard');
-    carCard.forEach((carCards)=>{
+
+
+
+    carCard.forEach(someFunction);
+
+
+    function someFunction(carCards) {
+      //For when something is clicked and its already chosen
       carCards.addEventListener('click', (e)=>{
+
+        input.value = "";
+        previousBorderColor = e.currentTarget.style.borderColor
+        previousThing = e.currentTarget;
+        console.log(">>>>>?>>>>",previousBorderColor)
+        console.log(">>>>>?>>>>",previousThing)
         if (carCards.classList.contains('selected')){
-      console.log('selected')
-      document.querySelector('.selected').style.background='none';
-      var input = document.querySelector('#input');
-      console.log(input);
-      input.value = "";
-      carCards.classList.remove('selected');
-    } else {
-      carCards.classList.add('selected')
-      carHandler(e);
-    }
+          console.log('if runs')
+          carCards.classList.remove('selected');
+          carCards.style.background='white'
+          previousThing.style.borderWidth = '5px';
+
+        }  else  {
+          console.log('else runs')
+          carCard.forEach((carCards)=> {
+          carCards.classList.remove('selected');
+          carCards.style.background='white'
+          carCards.style.borderWidth = '5px';
+          })
+          carCards.classList.toggle('selected')
+          carHandler(e);
+        }
+
       });
-    });
+
+
+    }
+
     document.querySelector("#input").addEventListener("input",addInventory.carOverride);
 
-    function carHandler(e){
+    function carHandler(target, tomato){
       console.log('carHandler is go')
-      document.querySelector('.selected').style.background='tomato',border = '10px red solid';
       addInventory.carOverride()
-
+      setLargeBorder(target, previousBorderColor)
+      setBackground(target,previousBorderColor)
       function setFocusToTextBox(){
-      document.getElementById("input").focus();
+      input.focus();
+      }
+
+      function setLargeBorder() {
+        console.log('set border working')
+        document.querySelector('.selected').style.borderWidth ='30px';
+      }
+      function setBackground() {
+      document.querySelector('.selected').style.background='tomato'
+
       }
     }
   }
