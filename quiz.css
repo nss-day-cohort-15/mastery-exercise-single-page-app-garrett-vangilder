@@ -1,0 +1,12 @@
+h1 {
+  color: tomato;
+}
+
+.carCard {
+  display: inline-block;
+  margin: 2em;
+}
+
+.border {
+  background: red solid 10px;
+}
