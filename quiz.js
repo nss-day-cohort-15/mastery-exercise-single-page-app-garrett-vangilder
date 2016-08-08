@@ -35,7 +35,6 @@ var placeToSendCars = document.querySelector('#placeForCars');
 
 
 
-
 addInventory.carOverride = function() {
   console.log('carOverride is go')
   var carDescription = document.querySelector('.selected .textContent');
@@ -46,6 +45,7 @@ addInventory.carOverride = function() {
   console.log(carDescription);
 
 }
+
 
 
       return addInventory;
